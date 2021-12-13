@@ -1,0 +1,26 @@
+.block {
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid #000;
+  position: absolute;
+}
+
+.block-1 {
+  top: 0;
+  left: 0;
+}
+
+.block-2 {
+  top: 0;
+  right: 0;
+}
+
+.block-3 {
+  bottom: 0;
+  left: 0;
+}
+
+.block-4 {
+  bottom: 0;
+  right: 0;
+}
