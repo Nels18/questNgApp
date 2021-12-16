@@ -1,1 +1,44 @@
-<p>sign-up works!</p>
+<h2>Formulaire d’inscription</h2>
+<form class="m-5" (ngSubmit)="userForm.valid && onSubmit()" #userForm="ngForm">
+  <div class="my-3">
+    <div>
+      <label class="form-label" for="firstname-user">Prénom</label>
+      <input class="form-control" id="firstname-user" name="firstname-user" type="text" [(ngModel)]="userModel.firstname" #firstnameUser="ngModel" required minlength="3" maxlength="15">
+    </div>
+    <div *ngIf="userForm.submitted && firstnameUser.errors">
+      <p class="text-danger" *ngIf="firstnameUser.errors?.required">Le prénom est requis</p>
+      <p class="text-danger" *ngIf="firstnameUser.errors?.minlength">Le prénom doit comporter au moins 3 caractères</p>
+      <p class="text-danger" *ngIf="firstnameUser.errors?.maxlength">Le prénom ne doit pas dépasser 15 caractères</p>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <div>
+      <label class="form-label" for="lastname-user">Nom</label>
+      <input class="form-control" id="lastname-user" name="lastname-user" type="text" [(ngModel)]="userModel.lastname" #lastnameUser="ngModel" required minlength="3" maxlength="15">
+    </div>
+    <div *ngIf="userForm.submitted && lastnameUser.errors">
+      <p class="text-danger" *ngIf="lastnameUser.errors?.required">Le nom est requis</p>
+      <p class="text-danger" *ngIf="lastnameUser.errors?.minlength">Le nom doit comporter au moins 3 caractères</p>
+      <p class="text-danger" *ngIf="lastnameUser.errors?.maxlength">Le nom ne doit pas dépasser 15 caractères</p>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <div>
+      <label class="form-label" for="email-user">Email</label>
+      <input class="form-control" id="email-user" name="email-user" [(ngModel)]="userModel.email" #emailUser="ngModel" required email>
+    </div>
+    <div *ngIf="userForm.submitted && emailUser.errors">
+      <p class="text-danger" *ngIf="emailUser.errors?.required">L'email est requis</p>
+      <p class="text-danger" *ngIf="emailUser.errors?.email">L’email est invalide</p>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <label class="form-label" for="password-user">Mot de Passe</label>
+    <input class="form-control" id="password-user" name="password-user" type="password" [(ngModel)]="userModel.password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>

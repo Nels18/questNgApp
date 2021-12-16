@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from "@angular/router";
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -23,6 +24,7 @@ import { MenuComponent } from './menu/menu.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    NgbModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],
